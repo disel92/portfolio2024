@@ -1,42 +1,125 @@
-import React from 'react';
-import styled from "styled-components";
+import React from "react";
+import styled, {css} from "styled-components";
 import {theme} from "../../../styles/Theme";
 
-
-export const HeaderMenu = (props: { menuItem: Array<string> }) => {
+export const MobileHeaderMenu = (props: { menuItem: Array<string> }) => {
     return (
-        <StyledHeaderMenu>
-            <ul>
-                {props.menuItem.map((item: string, index: number) => {
-                    return <ListItem key={index}>
-                        <Link href="">
-                            {item}
-                            <Mask>
-                                <span>{item}</span>
-                            </Mask>
-                            <Mask>
-                                <span>{item}</span>
-                            </Mask>
-                        </Link>
-                    </ListItem>
-                })}
-            </ul>
-        </StyledHeaderMenu>
+        <StyledMobileMenu>
+            <BurgerButton isOpen={false}>
+                <span></span>
+            </BurgerButton>
+
+            <MobileMenuPopup isOpen={false}>
+                <ul>
+                    {props.menuItem.map((item: string, index: number) => {
+                        return (
+                            <ListItem key={index}>
+                                <Link href="">
+                                    {item}
+                                    <Mask>
+                                        <span>{item}</span>
+                                    </Mask>
+                                    <Mask>
+                                        <span>{item}</span>
+                                    </Mask>
+                                </Link>
+                            </ListItem>
+                        );
+                    })}
+                </ul>
+            </MobileMenuPopup>
+        </StyledMobileMenu>
     );
 };
 
-const StyledHeaderMenu = styled.nav`
+const StyledMobileMenu = styled.nav`
+  display: none;
+
+  @media ${theme.media.tablet} {
+    display: block;
+  }
+`;
+
+const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  background-color: rgba(31, 31, 32, 0.9);
+
+  display: none;
+
+  ${(props) =>
+          props.isOpen &&
+          css<{ isOpen: boolean }>`
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          `}
   ul {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 30px;
     padding-right: 10px;
     justify-content: center;
   }
+`;
 
-  @media ${theme.media.tablet} {
-    display: none;
+const BurgerButton = styled.button<{ isOpen: boolean }>`
+  position: fixed;
+  top: -100px;
+  right: -100px;
+  width: 200px;
+  height: 200px;
+  z-index: 9999999999999;
+
+  span {
+    display: block;
+    width: 36px;
+    height: 3px;
+    background-color: ${theme.colors.font};
+    position: absolute;
+    left: 40px;
+    bottom: 50px;
+
+    ${(props) => props.isOpen && css<{ isOpen: boolean }>`
+      background-color: rgba(255, 255, 255, 0);
+    `}
+    &::before {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 3px;
+      background-color: ${theme.colors.font};
+      position: absolute;
+      transform: translateY(-10px);
+
+      ${(props) => props.isOpen && css<{ isOpen: boolean }>`
+        color: rgba(255, 255, 255, 0);
+        transform: rotate(-45deg) translateY(0);
+      `}
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 3px;
+      background-color: ${theme.colors.font};
+      position: absolute;
+      transform: translateY(10px);
+
+      ${(props) => props.isOpen && css<{ isOpen: boolean }>`
+        color: rgba(255, 255, 255, 0);
+        transform: rotate(45deg) translateY(0);
+        width: 36px;
+      `}
+    }
   }
-`
+`;
 
 const Link = styled.a`
   font-family: Josefin Sans, sans-serif;
@@ -44,7 +127,7 @@ const Link = styled.a`
   font-weight: 400;
   text-align: center;
   color: transparent;
-`
+`;
 
 const Mask = styled.span`
   position: absolute;
@@ -54,25 +137,26 @@ const Mask = styled.span`
   height: 50%;
   overflow-y: hidden;
   color: ${theme.colors.accent};
-  
+
   & + & {
     top: 50%;
+
     span {
       display: inline-block;
       transform: translateY(-50%);
     }
   }
-`
+`;
 
 const ListItem = styled.li`
   position: relative;
-  
+
   &::before {
-    content: '';
+    content: "";
     display: inline-block;
     height: 3px;
     background-color: ${theme.colors.accent};
-    
+
     position: absolute;
     top: 50%;
     left: -10px;
@@ -85,15 +169,14 @@ const ListItem = styled.li`
     &::before {
       transform: scale(1);
     }
-    
+
     ${Mask} {
       transform: skewX(12deg) translateX(5px);
       color: ${theme.colors.font};
-     
 
       & + ${Mask} {
         transform: skewX(12deg) translateX(-5px);
       }
     }
   }
-`
+`;

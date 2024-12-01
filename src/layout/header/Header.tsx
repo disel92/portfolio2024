@@ -1,24 +1,25 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
-import {Logo} from "../../components/logo/logo";
-import {Container} from "../../components/Container";
-import {FlexWrapper} from "../../components/FlexWrapper";
-import {HeaderMenu} from "./header menu/HeaderMenu";
+import { Logo } from "../../components/logo/logo";
+import { Container } from "../../components/Container";
+import { FlexWrapper } from "../../components/FlexWrapper";
+import { HeaderMenu } from "./header menu/HeaderMenu";
+import { MobileHeaderMenu } from "./mobile menu header/MobileHeaderMenu";
 
-
-const items = ['Home', 'Skills', 'Works', 'Testimony', 'Contact']
+const items = ["Home", "Skills", "Works", "Testimony", "Contact"];
 
 export const Header = () => {
-    return (
-        <StyledHeader>
-            <Container>
-                <FlexWrapper justify={'space-between'} align={'center'}>
-                    <Logo/>
-                    <HeaderMenu menuItem={items}/>
-                </FlexWrapper>
-            </Container>
-        </StyledHeader>
-    );
+  return (
+    <StyledHeader>
+      <Container>
+        <FlexWrapper justify={"space-between"} align={"center"}>
+          <Logo />
+          <HeaderMenu menuItem={items} />
+          <MobileHeaderMenu menuItem={items} />
+        </FlexWrapper>
+      </Container>
+    </StyledHeader>
+  );
 };
 
 const StyledHeader = styled.header`
@@ -29,4 +30,5 @@ const StyledHeader = styled.header`
   left: 0;
   right: 0;
   z-index: 99999;
-`
+  
+`;
