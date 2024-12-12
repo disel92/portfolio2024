@@ -26,7 +26,7 @@ export const Testimony = () => {
 
 const StyledTestimony = styled.section`
   background-color: #faf4a1;
-  min-height: 50vh;
+  height: 615px;
 
   
   ${IconWrapper} {

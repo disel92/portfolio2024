@@ -6,11 +6,6 @@ import {font} from "../styles/Common";
 export const SectionTitle = styled.h2`
   text-align: center;
 
-  //font-size: 36px;
-  //margin-bottom: 90px;
-  //font-family: Josefin Sans, sans-serif;
-  //font-weight: 600;
-
   ${font({family: "Josefin Sans,  sans-serif", weight: 600, fMax: 36, fMin: 30})}
   letter-spacing: 5px;
   margin-bottom: 90px;

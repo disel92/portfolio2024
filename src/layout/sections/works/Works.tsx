@@ -16,7 +16,7 @@ export const Works = () => {
             <Container>
                 <SectionTitle>My Works</SectionTitle>
                 <TabMenu menuItem={worksItems}/>
-                <FlexWrapper justify={'space-between'} align={'flex-start'}>
+                <FlexWrapper justify={'space-between'} align={'flex-start'} wrap={"wrap"}>
                     <Work title={'Social Network'}
                           src={imageWork1}
 
@@ -34,6 +34,8 @@ export const Works = () => {
 };
 
 const StyledWorks = styled.section`
-    
+  ${FlexWrapper} {
+    gap: 30px;
+  }
 `
 

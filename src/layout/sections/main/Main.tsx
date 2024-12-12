@@ -33,10 +33,10 @@ const StyledMain = styled.section`
   min-height: 100vh;
   color: rgba(255, 255, 255, 1);
   display: flex;
+  outline: 1px solid red;
   section {
-    padding: 10px 0 0;
+    padding: 10px 0 10px;
   }
-
 `
 
 const Photo = styled.img`
@@ -54,11 +54,14 @@ const Photo = styled.img`
 
 const MainTitle = styled.h1`
   ${font({fMax: 27, fMin: 20})};
+  outline: 1px solid red;
 `
 
 
 const SmallText = styled.span`
   ${font({fMax: 14, fMin: 14})};
+  ${font({fMax: 14, fMin: 14})};
+  outline: 1px solid red;
 `
 
 const Name = styled.h2`
@@ -66,6 +69,8 @@ const Name = styled.h2`
 
   letter-spacing: 0.05px;
   margin: 10px 0;
+  outline: 1px solid red;
+  
 
   span {
     position: relative;

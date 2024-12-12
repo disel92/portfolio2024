@@ -4,6 +4,7 @@ import {Icon} from "../../components/icon/Icon";
 import {FlexWrapper} from "../../components/FlexWrapper";
 import {theme} from "../../styles/Theme";
 import {Container} from "../../components/Container";
+import {font} from "../../styles/Common";
 
 
 export const Footer = () => {
@@ -59,12 +60,12 @@ const StyledFooter = styled.footer`
   padding: 40px 0;
 `
 
-const Name = styled.span`
-  font-family: Josefin Sans, sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 3px;
 
+const Name = styled.span`
+    ${font({family: "Josefin Sans, sans-serif", weight: 700, fMax: 22, fMin: 16})}
+
+    letter-spacing: 3px;
+    
 `
 
 const SocialList = styled.ul`
