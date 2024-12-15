@@ -54,14 +54,14 @@ const Photo = styled.img`
 
 const MainTitle = styled.h1`
   ${font({fMax: 27, fMin: 20})};
-  outline: 1px solid red;
+
 `
 
 
 const SmallText = styled.span`
   ${font({fMax: 14, fMin: 14})};
   ${font({fMax: 14, fMin: 14})};
-  outline: 1px solid red;
+
 `
 
 const Name = styled.h2`
@@ -69,7 +69,6 @@ const Name = styled.h2`
 
   letter-spacing: 0.05px;
   margin: 10px 0;
-  outline: 1px solid red;
   
 
   span {
