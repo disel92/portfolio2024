@@ -1,9 +1,8 @@
-import React from 'react';
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {theme} from "../../styles/Theme";
 
 
-export const Link = styled.a `
+export const Link = styled.a <{active?: boolean}> `
   font-size: 14px;
   letter-spacing: 1px;
   padding: 10px;
@@ -27,5 +26,9 @@ export const Link = styled.a `
     position: absolute;
     bottom: 6px;
     z-index: -1;
+    
+    ${props => props.active && css<{active?: boolean}>`
+      height: 10px;
+    `}
   }
 `
