@@ -28,7 +28,9 @@ const Photo = styled.img`
 
 const MainTitle = styled.h1`
   ${font({fMax: 27, fMin: 20})};
-
+  p {
+    display: none;
+  }
 `
 
 const SmallText = styled.span`

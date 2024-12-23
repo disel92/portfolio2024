@@ -19,6 +19,7 @@ export const Slogan: React.FC = () => {
 }
 
 const StyledSlogan = styled.section`
+  position: relative;
   background-color: #4ee1b6;
   min-height: 30vh;
 `
