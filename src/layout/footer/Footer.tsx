@@ -22,7 +22,7 @@ const socialItemData = [
 
 export const Footer: React.FC = () => {
     return (
-        <S.Footer>
+        <S.Footer id={"footer"}>
             <Container>
                 <FlexWrapper direction={'column'} align={'center'}>
                     <S.Name>Dmitry</S.Name>
