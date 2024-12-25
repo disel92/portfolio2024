@@ -13,10 +13,11 @@ const Works = styled.section`
 `
 
 const Work = styled.div`
-  width: 330px;
+  //width: 330px;
+  //flex-grow: 1;
+  
   background-color: ${theme.colors.secondaryBg};
 
-  flex-grow: 1;
   
   ${Link} {
     padding: 10px 0;
@@ -28,7 +29,7 @@ const Work = styled.div`
     }
   }
   @media ${theme.media.desktop} {
-    max-width: 540px;
+    //max-width: 540px;
   }
 `
 

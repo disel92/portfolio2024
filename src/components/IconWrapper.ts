@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from "styled-components";
+import {theme} from "../styles/Theme";
 
 
 export const IconWrapper = styled.div `
   position: relative;
   transition: .5s;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-
+  color: ${theme.colors.accent};
+  
   &::before {
     content:"";
     display: inline-block;
